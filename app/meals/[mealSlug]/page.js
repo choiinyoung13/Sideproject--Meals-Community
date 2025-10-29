@@ -1,9 +1,16 @@
 import Image from 'next/image'
 import classes from './page.module.css'
 import { getMeal } from '@/lib/meal'
+import { notFound } from 'next/navigation'
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug)
+export default async function MealDetailsPage({ params }) {
+  const { mealSlug } = await params
+  const meal = getMeal(mealSlug)
+
+  if (!meal) {
+    // 제일 가까운 not-found가 오류화면을 렌더링
+    notFound()
+  }
 
   meal.instructions = meal.instructions.replace(/\n/g, '<br />')
 
