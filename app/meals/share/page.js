@@ -1,7 +1,14 @@
 import ImagePicker from '@/components/meals/image-picker'
 import classes from './page.module.css'
+import { shareMeal } from '@/lib/actions'
+import MealsFormSubmit from '@/components/meals/meals-form-submit'
 
 export default function ShareMealPage() {
+  /*
+    폼을 제출하면 → Server Action 함수(shareMeal)가 서버에서 실행 → 데이터베이스 저장/처리 가능
+    별도의 API 라우트 없이 폼과 서버 로직을 한 곳에서 관리
+  */
+
   return (
     <>
       <header className={classes.header}>
@@ -11,7 +18,8 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form className={classes.form}>
+        {/*  폼 제출 시 서버 함수 실행 */}
+        <form className={classes.form} action={shareMeal}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -39,9 +47,9 @@ export default function ShareMealPage() {
               required
             ></textarea>
           </p>
-          <ImagePicker />
+          <ImagePicker label="Your Image" name="image" />
           <p className={classes.actions}>
-            <button type="submit">Share Meal</button>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>

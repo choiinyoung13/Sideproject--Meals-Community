@@ -14,6 +14,11 @@ export default async function MealDetailsPage({ params }) {
 
   meal.instructions = meal.instructions.replace(/\n/g, '<br />')
 
+  /* 
+    dangerouslySetInnerHTML은 문자열 형태의 HTML 코드(예: <br />)를
+    텍스트가 아닌 실제 HTML 태그로 렌더링하기 위해 사용하는 React 속성
+  */
+
   return (
     <>
       <header className={classes.header}>
