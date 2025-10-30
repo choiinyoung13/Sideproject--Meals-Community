@@ -128,6 +128,7 @@ experimental: {
 - **XSS 방지**: 사용자 입력(조리법)을 XSS 라이브러리로 필터링
 - **이미지 검증**: 파일 타입 및 크기 확인
 - **SQL Injection 방지**: Prepared Statements 사용
+<<<<<<< HEAD
 
 ## 📖 참고 문서
 
@@ -138,3 +139,5 @@ experimental: {
 ---
 
 Made with ❤️ by foodies, for foodies
+=======
+>>>>>>> 9ecb8dbee0eed4322724481eb7cce9a11ce56c5f
