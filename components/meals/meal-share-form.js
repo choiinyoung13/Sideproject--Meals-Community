@@ -12,7 +12,7 @@ import classes from './meal-share-form.module.css'
   */
 
 export default function MealShareForm() {
-  // useActionState:
+  // useActionState는 Server Action의 실행 결과를 클라이언트에서 받아서 처리해야 할 때 사용합니다. 특히 폼 제출과 함께 사용하면 강력
   // - state: 서버 액션이 반환한 값 (유효성 검사 실패 시 입력값 + 에러 메시지)
   // - formAction: 폼 제출 시 호출할 서버 액션
   const [state, formAction] = useActionState(shareMeal, { message: null })

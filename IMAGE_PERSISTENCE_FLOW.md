@@ -183,34 +183,6 @@ input.value = "C:\\path\\to\\photo.jpg"
 
 → 우리는 2번 방법을 선택!
 
----
-
-## 실무에서는?
-
-대부분의 회사는 **즉시 업로드** 방식을 사용:
-
-```javascript
-function handleImageChange(e) {
-  const file = e.target.files[0]
-
-  // 즉시 서버에 업로드
-  uploadImage(file).then(url => {
-    setImageUrl(url) // "/temp/abc123.jpg"
-  })
-}
-
-// 폼 제출 시 URL만 전송
-// → 파일 유지 문제 자체가 없음
-```
-
-**장점:**
-
-- 새로고침해도 이미지 유지
-- 파일 크기 제한 쉬움
-- 이미지 미리 처리 가능 (리사이징 등)
-
----
-
 ## 요약
 
 | 항목     | 내용                                 |

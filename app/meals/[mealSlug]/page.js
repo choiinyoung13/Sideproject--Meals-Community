@@ -3,12 +3,27 @@ import classes from './page.module.css'
 import { getMeal } from '@/lib/meal'
 import { notFound } from 'next/navigation'
 
+// 동적으로 메타데이터 설정하는 방법
+export async function generateMetadata({ params }) {
+  const { mealSlug } = await params
+  const meal = getMeal(mealSlug)
+
+  if (!meal) {
+    notFound()
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  }
+}
+
 export default async function MealDetailsPage({ params }) {
   const { mealSlug } = await params
   const meal = getMeal(mealSlug)
 
   if (!meal) {
-    // 제일 가까운 not-found가 오류화면을 렌더링
+    // 제일 가까운 not-found.js를 렌더링
     notFound()
   }
 

@@ -4,6 +4,11 @@ import MealsGrid from '@/components/meals/meals-grid'
 import { getMeals } from '@/lib/meal'
 import { Suspense } from 'react'
 
+export const metadata = {
+  title: 'All Meals',
+  description: 'Browse the delicious meals shared by our vibrant community.',
+}
+
 async function Meals() {
   // 서버 컴포넌트는 서버에서 실행되는 코드임으로 바로 DB로 접근 가능함
   // 그리고 클라이언트 컴포넌트에선 불가능했던 asnyc, await 문법도 바로 사용가능
